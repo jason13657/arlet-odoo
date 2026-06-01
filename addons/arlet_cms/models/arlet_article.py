@@ -289,6 +289,12 @@ class ArletArticle(models.Model):
         required=True,
         default='draft',
     )
+    section = fields.Selection(
+        [('read_arlet', 'Read Arlet'), ('press_media', 'Press & Media')],
+        string='Section',
+        required=True,
+        default='read_arlet',
+    )
     featured = fields.Boolean(string='Featured', default=False)
     # Detail page
     hero_bg = fields.Image(string='Hero BG', max_width=0, max_height=0)
@@ -316,6 +322,7 @@ class ArletArticle(models.Model):
             'image': self._img_url('image'),
             'slug': self.slug or '',
             'status': self.status,
+            'section': self.section or 'read_arlet',
             'featured': self.featured,
         }
 
