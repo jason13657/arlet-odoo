@@ -186,6 +186,7 @@
         <field name="arch" type="xml">
             <list string="Articles">
                 <field name="name"/>
+                <field name="section"/>
                 <field name="status"/>
                 <field name="featured"/>
                 <field name="title"/>
@@ -210,6 +211,7 @@
                     <group>
                         <group string="General">
                             <field name="name"/>
+                            <field name="section"/>
                             <field name="status"/>
                             <field name="featured"/>
                             <field name="published_at"/>
