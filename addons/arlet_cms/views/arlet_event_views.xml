@@ -78,6 +78,7 @@
                 <field name="title"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
+                <field name="period"/>
                 <field name="slug"/>
                 <field name="coming_soon"/>
                 <field name="featured"/>
@@ -102,6 +103,7 @@
                             <field name="category"/>
                             <field name="start_date"/>
                             <field name="end_date"/>
+                            <field name="period" placeholder="e.g. Summer 2026"/>
                             <field name="slug" readonly="1"/>
                             <field name="coming_soon"/>
                             <field name="featured"/>
