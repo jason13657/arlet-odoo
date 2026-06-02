@@ -51,7 +51,7 @@
                             <field name="text_color"/>
                             <field name="padding_y"/>
                             <field name="padding_x"/>
-                            <field name="text_align" invisible="type != 'text'"/>
+                            <field name="text_align" invisible="type not in ('text', 'cover')"/>
                             <field name="image_position" invisible="type not in ('split', 'half', 'testimonial')"/>
                             <field name="image_padding" invisible="type not in ('split', 'location')"/>
                         </group>
