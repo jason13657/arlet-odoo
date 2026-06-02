@@ -76,10 +76,14 @@ class ArletApiController(http.Controller):
         from datetime import date
         today = date.today().isoformat()
         if status == 'upcoming':
-            domain += [('start_date', '>=', today)]
+            domain += ['|', ('start_date', '>=', today), ('start_date', '=', False)]
         elif status == 'archived':
             domain += [('start_date', '<', today)]
         all_events = request.env['arlet.event'].sudo().search(domain)
+        # Sort: dated events first (asc), undated events last
+        def sort_key(e):
+            return (0, e.start_date.isoformat()) if e.start_date else (1, '')
+        all_events = sorted(all_events, key=sort_key)
         # Paginate when page param is provided
         if page:
             try:
