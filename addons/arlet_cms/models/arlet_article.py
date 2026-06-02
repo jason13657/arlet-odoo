@@ -143,6 +143,13 @@ class ArletContentBlock(models.Model):
         ('center', 'Center (max-width)'),
         ('left',   'Left'),
     ], string='Text Align', default='center')
+    max_width = fields.Selection([
+        ('3xl', '3xl — 48rem'),
+        ('4xl', '4xl — 56rem'),
+        ('5xl', '5xl — 64rem'),
+        ('6xl', '6xl — 72rem'),
+        ('7xl', '7xl — 80rem'),
+    ], string='Max Width', default='3xl')
     padding_x = fields.Selection([
         ('small',  'Small'),
         ('medium', 'Medium'),
@@ -179,7 +186,7 @@ class ArletContentBlock(models.Model):
         for attr, key in [
             ('image_alt', 'imageAlt'),
             ('image_position', 'imagePosition'), ('image_padding', 'imagePadding'), ('bg', 'bg'), ('text_color', 'textColor'),
-            ('padding_y', 'paddingY'), ('padding_x', 'paddingX'), ('text_align', 'textAlign'),
+            ('padding_y', 'paddingY'), ('padding_x', 'paddingX'), ('text_align', 'textAlign'), ('max_width', 'maxWidth'),
         ]:
             val = getattr(self, attr, None)
             if val:
