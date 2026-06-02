@@ -27,8 +27,9 @@ class ArletEvent(models.Model):
     )
     coming_soon = fields.Boolean(string='Coming Soon', default=False)
     featured = fields.Boolean(string='Featured', default=False)
-    start_date = fields.Date(string='Start Date', required=True)
-    end_date = fields.Date(string='End Date', required=True)
+    start_date = fields.Date(string='Start Date')
+    end_date = fields.Date(string='End Date')
+    period = fields.Char(string='Period', help='Free-text period label (e.g. "Summer 2026"). Shown instead of dates when set.')
     program_ids = fields.One2many('arlet.event.program.day', 'event_id', string='Program')
     # Event owner / host (e.g. a partner brand)
     owner_id = fields.Many2one(
@@ -57,8 +58,9 @@ class ArletEvent(models.Model):
             'categoryKey': self.category.key if self.category else '',
             'title': self._t('title', locale),
             'subtitle': self._t('subtitle', locale),
-            'startDate': self.start_date.isoformat() if self.start_date else '',
-            'endDate': self.end_date.isoformat() if self.end_date else '',
+            'startDate': self.start_date.isoformat() if self.start_date else None,
+            'endDate': self.end_date.isoformat() if self.end_date else None,
+            'period': self.period or None,
             'location': self._t('location', locale),
             'description': self._t('description', locale),
             'image': self._img_url('image'),
