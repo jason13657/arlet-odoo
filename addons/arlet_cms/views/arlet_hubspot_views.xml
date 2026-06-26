@@ -26,6 +26,14 @@
                         <field name="portal_id" readonly="1"/>
                         <field name="guid" readonly="1"/>
                     </group>
+                    <notebook>
+                        <page string="Fields">
+                            <field name="fields_json" readonly="1" nolabel="1"/>
+                        </page>
+                        <page string="Raw Payload">
+                            <field name="raw_json" readonly="1" nolabel="1"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

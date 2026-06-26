@@ -16,6 +16,7 @@ class ArletHubspotForm(models.Model):
     guid = fields.Char(string='Form GUID', required=True, readonly=True)
     name = fields.Char(string='Form Name', required=True, readonly=True)
     fields_json = fields.Json(string='Fields', readonly=True)
+    raw_json = fields.Json(string='Raw HubSpot Payload', readonly=True)
 
     _guid_unique = models.Constraint('UNIQUE(guid)', 'A form with this GUID already exists.')
 
@@ -83,6 +84,7 @@ class ArletHubspotForm(models.Model):
                 'guid': guid,
                 'portal_id': portal_id,
                 'name': form.get('name', guid),
+                'raw_json': form,
                 'fields_json': [
                     {
                         'name': f.get('name', ''),
