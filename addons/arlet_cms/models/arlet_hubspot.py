@@ -87,6 +87,7 @@ class ArletHubspotForm(models.Model):
                     {
                         'name': f.get('name', ''),
                         'label': f.get('label', ''),
+                        'placeholder': f.get('placeholder', ''),
                         'required': f.get('required', False),
                         'fieldType': f.get('fieldType', 'single_line_text'),
                     }
