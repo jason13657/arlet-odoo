@@ -12,21 +12,21 @@
                     <group>
                         <field name="locale"/>
                     </group>
-                    <group invisible="block_type in ('image', 'profile', 'location', 'program', 'form')">
+                    <group invisible="block_type in ('image', 'profile', 'location', 'program')">
                         <field name="title"/>
-                        <field name="label"    invisible="block_type in ('testimonial', 'profiles', 'occasion')"/>
+                        <field name="label" invisible="block_type in ('testimonial', 'profiles', 'occasion')"/>
                         <field name="subtitle" invisible="block_type == 'occasion'"/>
                     </group>
                     <separator string="HTML Body"
                                invisible="block_type in ('image', 'profile', 'location', 'program', 'form', 'occasion', 'profiles', 'testimonial')"/>
                     <field name="html" widget="html" nolabel="1"
                            invisible="block_type in ('image', 'profile', 'location', 'program', 'form', 'occasion', 'profiles', 'testimonial')"/>
-                    <group invisible="block_type in ('image', 'profile', 'location', 'program', 'form')">
+                    <group invisible="block_type in ('image', 'profile', 'location', 'program')">
                         <field name="paragraphs" placeholder="One paragraph per line (used if HTML empty)"
                                invisible="block_type in ('occasion', 'profiles')"/>
-                        <field name="footer"     placeholder="One footer line per line"
-                               invisible="block_type == 'profiles'"/>
-                        <field name="left_items"  placeholder="Left column — one item per line"
+                        <field name="footer" placeholder="One footer line per line"
+                               invisible="block_type in ('profiles', 'form')"/>
+                        <field name="left_items" placeholder="Left column — one item per line"
                                invisible="block_type != 'occasion'"/>
                         <field name="right_items" placeholder="Right column — one item per line"
                                invisible="block_type != 'occasion'"/>
